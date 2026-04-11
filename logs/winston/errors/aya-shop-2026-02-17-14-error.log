@@ -1,6 +1,0 @@
-{Tue Feb 17 2026 14:11:25} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /favicon.ico 404 - 1.454 ms
-{Tue Feb 17 2026 14:32:58} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/auth/verify-account 400 - 16.331 ms
-{Tue Feb 17 2026 14:33:53} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/auth/verify-account 400 - 3.989 ms
-{Tue Feb 17 2026 14:34:35} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/auth/verify-account 400 - 3.836 ms
-{Tue Feb 17 2026 14:43:36} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/auth/add-phone 400 - 18.059 ms
-{Tue Feb 17 2026 14:44:51} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - PATCH /api/v1/user/business-profile 403 - 4.079 ms

@@ -1,2 +1,0 @@
-{Tue Feb 17 2026 15:37:52} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - PATCH /api/v1/user/business-status/699427438d9b6bfe5d025c10 404 - 16.219 ms
-{Tue Feb 17 2026 15:38:00} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - PATCH /api/v1/user/business-status/699427438d9b6bfe5d025c10 403 - 8.416 ms

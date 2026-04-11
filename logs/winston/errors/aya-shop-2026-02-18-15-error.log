@@ -1,5 +1,0 @@
-{Wed Feb 18 2026 15:12:22} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/service?category&category=69957a958cab7a66f8f10d2d 500 - 33.967 ms
-{Wed Feb 18 2026 15:23:00} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/service/top-rated 404 - 6.584 ms
-{Wed Feb 18 2026 15:23:06} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/service/top-rated 403 - 9.642 ms
-{Wed Feb 18 2026 15:35:43} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/review 403 - 23.065 ms
-{Wed Feb 18 2026 15:37:56} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/notification 403 - 3.015 ms

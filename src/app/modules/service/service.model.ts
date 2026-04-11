@@ -68,6 +68,11 @@ const ServiceSchema = new Schema<IService>(
             type: Boolean,
             default: true,
         },
+        serviceType: {
+            type: String,
+            enum: ["paid", "unpaid"],
+            default: "paid",
+        },
     },
     {
         timestamps: true,

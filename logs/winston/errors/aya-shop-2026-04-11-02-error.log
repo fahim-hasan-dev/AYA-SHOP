@@ -1,0 +1,6 @@
+{Sat Apr 11 2026 02:52:05} [AYA SHOP 🐞] error: ::ffff:10.10.7.58 - GET /api/v1/dashboard/stats 404 - 3.750 ms
+{Sat Apr 11 2026 02:52:05} [AYA SHOP 🐞] error: ::ffff:10.10.7.58 - GET /api/v1/dashboard/recent-transactions 404 - 3.991 ms
+{Sat Apr 11 2026 02:52:05} [AYA SHOP 🐞] error: ::ffff:10.10.7.58 - GET /api/v1/dashboard/active-sessions 404 - 7.765 ms
+{Sat Apr 11 2026 02:52:05} [AYA SHOP 🐞] error: ::ffff:10.10.7.58 - GET /api/v1/dashboard/stats 404 - 2.580 ms
+{Sat Apr 11 2026 02:52:05} [AYA SHOP 🐞] error: ::ffff:10.10.7.58 - GET /api/v1/dashboard/recent-transactions 404 - 2.806 ms
+{Sat Apr 11 2026 02:52:05} [AYA SHOP 🐞] error: ::ffff:10.10.7.58 - GET /api/v1/dashboard/active-sessions 404 - 0.446 ms

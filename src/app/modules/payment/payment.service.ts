@@ -13,10 +13,15 @@ const creatSession = async (user: JwtPayload, bookingId: string) => {
 
 
 
-    const booking = await Booking.findById(bookingId);
+    const booking = await Booking.findById(bookingId).populate('service');
     if (!booking) {
       throw new ApiError(StatusCodes.NOT_FOUND, "Booking not found");
     }
+
+    if((booking.service as any).serviceType === 'unpaid'){
+        throw new ApiError(StatusCodes.BAD_REQUEST, "Payment is not required for unpaid services");
+    }
+
     const finalAmount = booking.totalAmount;
 
 

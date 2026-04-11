@@ -21,9 +21,14 @@ const createBookingToDB = async (userId: string, payload: IBooking) => {
         throw new ApiError(StatusCodes.NOT_FOUND, "Service not found");
     }
 
+    if (service.serviceType === 'unpaid') {
+        throw new ApiError(StatusCodes.BAD_REQUEST, "Booking is not allowed for unpaid services.");
+    }
+
     payload.user = userId as any;
     payload.provider = service.provider;
     payload.totalAmount = service.price;
+    payload.status = BOOKING_STATUS.REGISTERED;
 
     const bookingCountOnDate = await Booking.countDocuments({
         service: payload.service,
@@ -155,12 +160,9 @@ const createBookingToDB = async (userId: string, payload: IBooking) => {
         }
     }
 
-    const result = await Booking.create({
-        ...payload,
-        status: BOOKING_STATUS.REGISTERED,
-    });
+    const result = await Booking.create(payload);
 
-    if (payload.paymentMethod === 'handCash') {
+    if (service.serviceType === 'paid' && payload.paymentMethod === 'handCash') {
         await Booking.findByIdAndUpdate(result._id, {
             $set: {
                 status: BOOKING_STATUS.PENDING,

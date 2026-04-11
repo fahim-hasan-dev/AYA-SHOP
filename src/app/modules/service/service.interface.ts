@@ -18,4 +18,5 @@ export type IService = {
         averageRating: number;
     };
     isActive: boolean;
+    serviceType: "paid" | "unpaid";
 };

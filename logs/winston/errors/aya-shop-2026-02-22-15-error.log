@@ -1,3 +1,0 @@
-{Sun Feb 22 2026 15:34:30} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/message 401 - 14.806 ms
-{Sun Feb 22 2026 15:34:53} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/message 400 - 24.891 ms
-{Sun Feb 22 2026 15:35:37} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/chat 401 - 1.458 ms

@@ -1,8 +1,0 @@
-{Mon Feb 23 2026 08:29:18} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/business-analytics 404 - 3.831 ms
-{Mon Feb 23 2026 08:29:35} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/meta/business-analytics 403 - 9.794 ms
-{Mon Feb 23 2026 08:42:35} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/booking 404 - 17.069 ms
-{Mon Feb 23 2026 08:43:18} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/booking 400 - 6.631 ms
-{Mon Feb 23 2026 08:43:31} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/booking/699a2266e56794644a3de80b 404 - 5.328 ms
-{Mon Feb 23 2026 08:44:47} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/booking 400 - 4.974 ms
-{Mon Feb 23 2026 08:45:50} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/booking 400 - 9.330 ms
-{Mon Feb 23 2026 08:54:54} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/service/699a2266e56794644a3de80b 500 - 39.153 ms

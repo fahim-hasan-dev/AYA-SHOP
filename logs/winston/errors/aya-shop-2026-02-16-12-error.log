@@ -1,5 +1,0 @@
-{Mon Feb 16 2026 12:13:33} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/plans 404 - 48.454 ms
-{Mon Feb 16 2026 12:14:21} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/plan 401 - 58.138 ms
-{Mon Feb 16 2026 12:16:12} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/plan 400 - 5.177 ms
-{Mon Feb 16 2026 12:17:59} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/plans 404 - 3.330 ms
-{Mon Feb 16 2026 12:22:08} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/plan/create-checkout-session/6992b5ffc5b2937ee1e5934f 404 - 12.122 ms

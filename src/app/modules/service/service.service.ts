@@ -140,6 +140,7 @@ const getAllServicesFromDB = async (user: any, query: Record<string, unknown>) =
             providerInfo: 1,
             categoryInfo: 1,
             isActive: 1,
+            serviceType: 1,
             createdAt: 1,
             updatedAt: 1
         }

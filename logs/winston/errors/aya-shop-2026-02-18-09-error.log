@@ -1,5 +1,0 @@
-{Wed Feb 18 2026 09:24:39} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/service 401 - 18.986 ms
-{Wed Feb 18 2026 09:24:47} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/service 401 - 4.582 ms
-{Wed Feb 18 2026 09:24:48} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/service 401 - 3.398 ms
-{Wed Feb 18 2026 09:28:55} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/booking 401 - 5.728 ms
-{Wed Feb 18 2026 09:30:50} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/service 401 - 3.305 ms

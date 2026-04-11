@@ -1,4 +1,0 @@
-{Mon Feb 16 2026 14:56:40} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/auth/add-phone 404 - 6.613 ms
-{Mon Feb 16 2026 14:56:44} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/auth/add-phone 404 - 2.530 ms
-{Mon Feb 16 2026 14:57:38} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/auth/add-phone 400 - 16.850 ms
-{Mon Feb 16 2026 14:57:53} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/auth/add-phone 400 - 7.157 ms

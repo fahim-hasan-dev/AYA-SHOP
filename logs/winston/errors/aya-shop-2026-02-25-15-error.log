@@ -1,5 +1,0 @@
-{Wed Feb 25 2026 15:03:51} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/service 400 - 16.298 ms
-{Wed Feb 25 2026 15:04:17} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/service 404 - 2.133 ms
-{Wed Feb 25 2026 15:34:48} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/review 400 - 6.577 ms
-{Wed Feb 25 2026 15:35:20} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/review/699ebb0208b455b0f619fc1b?limit=2 500 - 7.534 ms
-{Wed Feb 25 2026 15:40:47} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/review/business/my-reviews 404 - 9.858 ms

@@ -1,3 +1,0 @@
-{Wed Feb 18 2026 14:38:36} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/category/create 400 - 8.803 ms
-{Wed Feb 18 2026 14:39:34} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - PATCH /api/v1/service/6995327ab84fb5109a230d1d 403 - 11.732 ms
-{Wed Feb 18 2026 14:40:21} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - PATCH /api/v1/service/6995327ab84fb5109a230d1d 403 - 5.031 ms

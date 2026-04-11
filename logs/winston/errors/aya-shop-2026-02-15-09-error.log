@@ -1,5 +1,0 @@
-{Sun Feb 15 2026 09:13:30} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /favicon.ico 404 - 1.198 ms
-{Sun Feb 15 2026 09:13:48} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /webhook 400 - 8.446 ms
-{Sun Feb 15 2026 09:30:08} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - POST /api/v1/booking 401 - 20.785 ms
-{Sun Feb 15 2026 09:33:24} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - GET /api/v1/booking/69913deac261dc890bf7112f 401 - 1.863 ms
-{Sun Feb 15 2026 09:40:26} [AYA SHOP 🐞] error: ::ffff:10.10.7.50 - PATCH /api/v1/booking/69913deac261dc890bf7112f/status 403 - 2.804 ms
