@@ -1,4 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
+import { Request } from 'express';
 import multer from 'multer';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import config from './index';
@@ -11,10 +12,11 @@ cloudinary.config({
 
 const storage = new CloudinaryStorage({
     cloudinary,
-    params: (req, file) => ({
+    params: (req: Request, file: Express.Multer.File) => ({
         folder: 'outfit_orbit',
         resource_type: 'auto'
     })
 });
 
 export const upload = multer({ storage });
+
