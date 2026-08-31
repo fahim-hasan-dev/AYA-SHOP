@@ -15,11 +15,33 @@ const createService = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllServices = catchAsync(async (req: Request, res: Response) => {
-    const result = await ServiceService.getAllServicesFromDB(req.user, req.query);
+    const result = await ServiceService.getAllPublicServicesFromDB(req.query);
     sendResponse(res, {
         statusCode: StatusCodes.OK,
         success: true,
         message: "Services retrieved successfully",
+        meta: result.meta,
+        data: result.result,
+    });
+});
+
+const getMyServices = catchAsync(async (req: Request, res: Response) => {
+    const result = await ServiceService.getMyServicesFromDB(req.user.authId, req.query);
+    sendResponse(res, {
+        statusCode: StatusCodes.OK,
+        success: true,
+        message: "My services retrieved successfully",
+        meta: result.meta,
+        data: result.result,
+    });
+});
+
+const getAdminServices = catchAsync(async (req: Request, res: Response) => {
+    const result = await ServiceService.getAdminServicesFromDB(req.query);
+    sendResponse(res, {
+        statusCode: StatusCodes.OK,
+        success: true,
+        message: "All services retrieved successfully",
         meta: result.meta,
         data: result.result,
     });
@@ -90,6 +112,8 @@ const toggleServiceStatus = catchAsync(async (req: Request, res: Response) => {
 export const ServiceController = {
     createService,
     getAllServices,
+    getMyServices,
+    getAdminServices,
     getSingleService,
     updateService,
     deleteService,

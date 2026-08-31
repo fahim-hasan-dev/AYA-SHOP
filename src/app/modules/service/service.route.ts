@@ -19,12 +19,21 @@ router.post(
 );
 
 router.get("/",
-    auth(USER_ROLES.BUSINESS, USER_ROLES.ADMIN, USER_ROLES.CLIENT),
     ServiceController.getAllServices
 );
 
+router.get("/my-services",
+    auth(USER_ROLES.BUSINESS),
+    businessAuth,
+    ServiceController.getMyServices
+);
+
+router.get("/admin/all-services",
+    auth(USER_ROLES.ADMIN),
+    ServiceController.getAdminServices
+);
+
 router.get("/top-rated",
-    auth(USER_ROLES.CLIENT),
     ServiceController.getTopRatedServices
 );
 

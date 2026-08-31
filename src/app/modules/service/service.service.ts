@@ -23,25 +23,15 @@ const createServiceToDB = async (providerId: string, payload: IService) => {
 };
 
 
-const getAllServicesFromDB = async (user: any, query: Record<string, unknown>) => {
+const buildServicePipeline = (matchStage: Record<string, any>, query: Record<string, unknown>) => {
     const pipeline: any[] = [];
 
-    // 1. Match services based on role
-    let matchStage: any = {};
-
-    if (user.role === USER_ROLES.CLIENT) {
-        matchStage.isActive = true;
-    }
-
-    if (user.role === USER_ROLES.BUSINESS && user.authId) {
-        matchStage.provider = new mongoose.Types.ObjectId(user.authId);
-    }
-
+    // 1. Match services based on query / match stage
     if (Object.keys(matchStage).length > 0) {
         pipeline.push({ $match: matchStage });
     }
 
-    // 2. Lookup provider details (only required fields)
+    // 2. Lookup provider details
     pipeline.push({
         $lookup: {
             from: "users",
@@ -68,7 +58,7 @@ const getAllServicesFromDB = async (user: any, query: Record<string, unknown>) =
     });
     pipeline.push({ $unwind: "$providerInfo" });
 
-    // 3. Lookup category details (only required fields)
+    // 3. Lookup category details
     pipeline.push({
         $lookup: {
             from: "categories",
@@ -96,7 +86,6 @@ const getAllServicesFromDB = async (user: any, query: Record<string, unknown>) =
         if (query.zipCode) locationMatch["providerInfo.business.zipCode"] = query.zipCode;
         pipeline.push({ $match: locationMatch });
     }
-
 
     // 5. Apply search
     if (query.searchTerm) {
@@ -126,7 +115,15 @@ const getAllServicesFromDB = async (user: any, query: Record<string, unknown>) =
         pipeline.push({ $match: { price: priceMatch } });
     }
 
-    // 7. Project only required service fields
+    if (query.isActive !== undefined) {
+        pipeline.push({
+            $match: {
+                isActive: query.isActive === "true" || query.isActive === true
+            }
+        });
+    }
+
+    // 7. Project required service fields
     pipeline.push({
         $project: {
             name: 1,
@@ -152,25 +149,27 @@ const getAllServicesFromDB = async (user: any, query: Record<string, unknown>) =
     const sortKey = sortField.replace("-", "");
     pipeline.push({ $sort: { [sortKey]: sortOrder } });
 
-    // 9. Pagination
+    return pipeline;
+};
+
+const executeServiceAggregate = async (pipeline: any[], query: Record<string, unknown>) => {
     const page = Number(query.page) || 1;
     const limit = Number(query.limit) || 10;
     const skip = (page - 1) * limit;
 
-    // Get total count
-    const countPipeline = [...pipeline];
-    // Remove project and pagination stages for count
     const countResult = await Service.aggregate([
-        ...pipeline.slice(0, -3), // Remove project, sort, skip, limit
+        ...pipeline.slice(0, -2), // Remove project and sort stages for count
         { $count: "total" }
     ]);
     const total = countResult[0]?.total || 0;
 
-    // Get paginated results
-    pipeline.push({ $skip: skip });
-    pipeline.push({ $limit: limit });
+    const paginatedPipeline = [
+        ...pipeline,
+        { $skip: skip },
+        { $limit: limit }
+    ];
 
-    const result = await Service.aggregate(pipeline);
+    const result = await Service.aggregate(paginatedPipeline);
 
     return {
         meta: {
@@ -181,6 +180,34 @@ const getAllServicesFromDB = async (user: any, query: Record<string, unknown>) =
         },
         result
     };
+};
+
+const getAllPublicServicesFromDB = async (query: Record<string, unknown>) => {
+    const pipeline = buildServicePipeline({ isActive: true }, query);
+    return await executeServiceAggregate(pipeline, query);
+};
+
+const getMyServicesFromDB = async (providerId: string, query: Record<string, unknown>) => {
+    const pipeline = buildServicePipeline(
+        { provider: new mongoose.Types.ObjectId(providerId) },
+        query
+    );
+    return await executeServiceAggregate(pipeline, query);
+};
+
+const getAdminServicesFromDB = async (query: Record<string, unknown>) => {
+    const pipeline = buildServicePipeline({}, query);
+    return await executeServiceAggregate(pipeline, query);
+};
+
+const getAllServicesFromDB = async (user: any, query: Record<string, unknown>) => {
+    if (user?.role === USER_ROLES.BUSINESS && user?.authId) {
+        return getMyServicesFromDB(user.authId, query);
+    }
+    if (user?.role === USER_ROLES.ADMIN) {
+        return getAdminServicesFromDB(query);
+    }
+    return getAllPublicServicesFromDB(query);
 };
 
 const getSingleServiceFromDB = async (id: string, user: JwtPayload) => {
@@ -343,6 +370,7 @@ const getTopRatedServicesFromDB = async (query: Record<string, unknown>) => {
     const meta = await serviceQuery.getPaginationInfo();
 
     return { meta, result };
+    
 };
 
 
@@ -401,6 +429,9 @@ const deleteServiceFromDB = async (user: JwtPayload, id: string) => {
 export const ServiceService = {
     createServiceToDB,
     getAllServicesFromDB,
+    getAllPublicServicesFromDB,
+    getMyServicesFromDB,
+    getAdminServicesFromDB,
     getSingleServiceFromDB,
     updateServiceInDB,
     deleteServiceFromDB,
